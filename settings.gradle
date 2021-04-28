@@ -1,0 +1,3 @@
+include ':circularbarlib'
+include ':app'
+rootProject.name = "CircularBarApplication"
