@@ -20,7 +20,7 @@ public class Binding {
             } else {
                 knobView.animate().translationY(knobView.getHeight() / 2.5f)
                         .scaleY(.2f).scaleX(.2f).setDuration(200).alpha(0f)
-                        .withEndAction(() -> knobView.setVisibility(View.INVISIBLE)).start();
+                        .withEndAction(() -> knobView.setVisibility(View.GONE)).start();
             }
         }
     }

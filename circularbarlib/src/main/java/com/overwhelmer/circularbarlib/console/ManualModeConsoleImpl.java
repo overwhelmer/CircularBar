@@ -5,6 +5,7 @@ import android.content.Context;
 import android.hardware.camera2.CameraCharacteristics;
 import android.view.View;
 
+import com.overwhelmer.circularbarlib.api.ManualModeConsole;
 import com.overwhelmer.circularbarlib.camera.CameraProperties;
 import com.overwhelmer.circularbarlib.control.ManualParamModel;
 import com.overwhelmer.circularbarlib.control.models.EvModel;
@@ -27,7 +28,7 @@ import java.util.Observer;
  * <p>
  * Authors - Vibhor, KillerInk
  */
-class ManualModeConsoleImpl implements ManualModeConsole {
+public class ManualModeConsoleImpl implements ManualModeConsole {
     private static final String TAG = "ManualModeConsole";
     private final ManualModeModel manualModeModel;
     private final KnobModel knobModel;
@@ -40,7 +41,7 @@ class ManualModeConsoleImpl implements ManualModeConsole {
         this.knobModel = new KnobModel();
     }
 
-    static ManualModeConsole getInstance() {
+    public static ManualModeConsole getInstance() {
         return ManualModeConsoleImpl.Singleton.INSTANCE;
     }
 
@@ -56,6 +57,11 @@ class ManualModeConsoleImpl implements ManualModeConsole {
     @Override
     public void removeParamObservers() {
         manualParamModel.deleteObservers();
+    }
+
+    @Override
+    public ManualParamModel getManualParamModel() {
+        return manualParamModel;
     }
 
     public KnobModel getKnobModel() {

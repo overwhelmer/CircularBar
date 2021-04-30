@@ -19,3 +19,10 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-ignorewarnings
+-keep class com.overwhelmer.circularbarlib.api.*{
+    public *;
+}
+-keep class com.overwhelmer.circularbarlib.control.ManualParamModel{
+    public *;
+}

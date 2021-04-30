@@ -1,7 +1,9 @@
-package com.overwhelmer.circularbarlib.console;
+package com.overwhelmer.circularbarlib.api;
 
 import android.app.Activity;
 import android.hardware.camera2.CameraCharacteristics;
+
+import com.overwhelmer.circularbarlib.control.ManualParamModel;
 
 import java.util.Observer;
 
@@ -14,6 +16,8 @@ public interface ManualModeConsole {
     void onPause();
 
     void addParamObserver(Observer observer);
+
+    ManualParamModel getManualParamModel();
 
     void removeParamObservers();
 

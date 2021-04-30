@@ -8,10 +8,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.overwhelmer.circularbarlib.console.ManualInstanceProvider;
-import com.overwhelmer.circularbarlib.console.ManualModeConsole;
+import com.overwhelmer.circularbarlib.api.ManualInstanceProvider;
+import com.overwhelmer.circularbarlib.api.ManualModeConsole;
 import com.overwhelmer.circularbarlib.control.ManualParamModel;
-import com.overwhelmer.circularbarlib.ui.views.knobview.KnobInfo;
 
 import java.util.Observable;
 import java.util.Observer;
