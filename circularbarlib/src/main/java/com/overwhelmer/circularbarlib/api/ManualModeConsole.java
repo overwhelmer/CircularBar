@@ -15,6 +15,8 @@ public interface ManualModeConsole {
 
     void onPause();
 
+    void onDestroy();
+
     void addParamObserver(Observer observer);
 
     ManualParamModel getManualParamModel();

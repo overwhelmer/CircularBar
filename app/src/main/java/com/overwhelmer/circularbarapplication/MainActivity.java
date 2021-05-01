@@ -61,6 +61,12 @@ public class MainActivity extends AppCompatActivity implements Observer {
     }
 
     @Override
+    protected void onDestroy() {
+        manualModeConsole.onDestroy();
+        super.onDestroy();
+    }
+
+    @Override
     public void update(Observable o, Object arg) {
         if (o instanceof ManualParamModel) {
             ManualParamModel manualParamModel = (ManualParamModel) o;

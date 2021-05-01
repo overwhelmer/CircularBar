@@ -30,6 +30,7 @@ import java.util.Observer;
  */
 public class ManualModeConsoleImpl implements ManualModeConsole {
     private static final String TAG = "ManualModeConsole";
+    private static ManualModeConsole sInstance;
     private final ManualModeModel manualModeModel;
     private final KnobModel knobModel;
     private final ManualParamModel manualParamModel = new ManualParamModel();
@@ -42,7 +43,14 @@ public class ManualModeConsoleImpl implements ManualModeConsole {
     }
 
     public static ManualModeConsole getInstance() {
-        return ManualModeConsoleImpl.Singleton.INSTANCE;
+        if (sInstance == null) {
+            sInstance = newInstance();
+        }
+        return sInstance;
+    }
+
+    public static ManualModeConsole newInstance() {
+        return new ManualModeConsoleImpl();
     }
 
     public ManualModeModel getManualModeModel() {
@@ -91,6 +99,11 @@ public class ManualModeConsoleImpl implements ManualModeConsole {
             viewObserver.disableOrientationListener();
         }
         removeObservers();
+    }
+
+    @Override
+    public void onDestroy() {
+        sInstance = null;
     }
 
     private void addObserver() {
@@ -192,9 +205,5 @@ public class ManualModeConsoleImpl implements ManualModeConsole {
                 selectedModel = modelToKnob;
             }
         }
-    }
-
-    private static class Singleton {
-        private static final ManualModeConsole INSTANCE = new ManualModeConsoleImpl();
     }
 }
